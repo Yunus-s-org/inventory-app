@@ -5,7 +5,15 @@ const getAllProductsStatic = async (req, res) => {
   res.status(200).json({ products, nbHits: products.length });
 };
 const getAllProducts = async (req, res) => {
-  res.status(200).json({ msg: "products route" });
+  const {name} = req.query;
+  const queryObject = {};
+
+  if (name) {
+    queryObject.name = { $regex: name, $options: "i" };
+  }
+
+  const product = await Product.find(queryObject);
+  res.status(200).json(product);
 };
 
 const createProduct = async (req, res) => {
