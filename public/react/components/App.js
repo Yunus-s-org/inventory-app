@@ -25,7 +25,7 @@ export const App = () => {
 
 	return (
 		<main>	
-      <h1 className='text-red-500'>Source Store</h1>
+      <h1 className='text-2xl text-red-300'>Sauce Store</h1>
 			<h2>All things 🔥</h2>
 			<SaucesList sauces={sauces} />
 		</main>
