@@ -6,7 +6,7 @@
     "client-dev": "parcel public/index.html --open",
     "server-dev": "nodemon app.js",
     "populate": "node server/populate.js",
-    "start": "parcel build public/index.html && npm run populate && node app.js"
+    "start": "parcel public/index.html && npm run populate && node app.js"
   },
   "dependencies": {
     "@babel/preset-env": "^7.15.0",
