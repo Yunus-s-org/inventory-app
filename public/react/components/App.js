@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SaucesList } from "./SaucesList";
 import { IoSearchSharp } from "react-icons/io5";
+import Popup from "./Popup";
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
@@ -12,6 +13,7 @@ export const App = () => {
   const [sauces, setSauces] = useState([]);
 	const [products, setProducts] = useState([])
   const [product, setProduct] = useState({})
+  const [showPopUp, setShowPopUp] = useState(false);
 
   async function fetchSauces() {
     try {
@@ -63,7 +65,7 @@ export const App = () => {
         </a>
       </nav>
       <Search fetchProductsByName={fetchProductsByName} />
-      <ProductList products = {products} setProducts={setProducts}/>
+      {showPopUp ? <Popup/> : <ProductList products = {products} setProducts={setProducts} fetchProducts={fetchProducts} setShowPopUp={setShowPopUp}/>}
     </main>
   );
 };
