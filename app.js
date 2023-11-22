@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 require('express-async-errors');
+const cors = require('cors');
+
+//Allow CORS requests
+app.use(cors());
 
 
 const port = process.env.PORT || 3000;

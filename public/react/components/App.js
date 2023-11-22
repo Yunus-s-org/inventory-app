@@ -6,9 +6,11 @@ import { IoSearchSharp } from "react-icons/io5";
 import apiURL from "../api";
 import ProductList from "./ProductList";
 import Search from "./Search";
+import { set } from "mongoose";
 
 export const App = () => {
   const [sauces, setSauces] = useState([]);
+	const [products, setProduct] = useState([])
 
   async function fetchSauces() {
     try {
@@ -21,8 +23,20 @@ export const App = () => {
     }
   }
 
+
+	const fetchProduct = async() => {
+		try {
+			const response = await fetch(`http://localhost:3000/api/v1/products`)
+			const productData = await response.json()
+			setProduct(productData)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+
   useEffect(() => {
-    fetchSauces();
+		fetchProduct()
   }, []);
 
   return (
@@ -39,7 +53,7 @@ export const App = () => {
         </a>
       </nav>
       <Search />
-      <ProductList />
+      <ProductList products = {products}/>
     </main>
   );
 };

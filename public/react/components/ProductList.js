@@ -1,170 +1,42 @@
-import React from 'react'
+import React from "react";
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
   return (
-    <div className="flex flex-row">
-    <div className="max-w-[15rem] ml-10 mt-10 border border-gray-200 rounded-lg shadow bg-[#f9fafb00]">
-      <a href="#">
-        <img
-          className="rounded-t-lg p-1"
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-          alt=""
-        />
-      </a>
-      <div className="p-3">
-        <a href="#">
-          <h5 className="mb-4 text-sm font-bold tracking-tight text-gray-900 ">
-            Backpack
-          </h5>
-        </a>
-        <p className="mb-3 text-xs font-normal text-gray-700 dark:text-gray-400">
-          £9.99
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Add to cart
-          <svg
-            className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
+    <div className="flex flex-row flex-wrap">
+      {products.map((product) => {
+        return (
+          <div
+            key={product.id}
+            className="h-[60%] w-96 ml-10 mt-10 border border-gray-200 rounded-lg shadow bg-[#f9fafb00]"
           >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
-      </div>
+            <div className="w-full h-[30rem] rounded-md overflow-hidden group-hover:opacity-95 lg:h-[24rem]">
+              <img
+                className="object-center object-scale-down lg:w-full lg:h-full"
+                src={product.image}
+                alt=""
+              />
+            </div>
+            <div className="p-3">
+              <a href="#">
+                <h5 className="mb-4 text-sm font-bold tracking-tight text-gray-900 ">
+                  {product.name}
+                </h5>
+              </a>
+              <p className="mb-3 text-xs font-normal text-gray-700 dark:text-gray-400">
+                £{product.price}
+              </p>
+              <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Edit
+              </button>
+              <button className="inline-flex items-center px-3 py-2 ml-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg ">
+                Delete
+              </button>
+            </div>
+          </div>
+        );
+      })}
     </div>
-    <div className="max-w-[15rem] ml-10 mt-10 border border-gray-200 rounded-lg shadow bg-[#f9fafb00]">
-      <a href="#">
-        <img
-          className="rounded-t-lg p-1"
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-          alt=""
-        />
-      </a>
-      <div className="p-3">
-        <a href="#">
-          <h5 className="mb-4 text-sm font-bold tracking-tight text-gray-900 ">
-            Backpack
-          </h5>
-        </a>
-        <p className="mb-3 text-xs font-normal text-gray-700 dark:text-gray-400">
-          £9.99
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Add to cart
-          <svg
-            className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
-    <div className="max-w-[15rem] ml-10 mt-10 border border-gray-200 rounded-lg shadow bg-[#f9fafb00]">
-      <a href="#">
-        <img
-          className="rounded-t-lg p-1"
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-          alt=""
-        />
-      </a>
-      <div className="p-3">
-        <a href="#">
-          <h5 className="mb-4 text-sm font-bold tracking-tight text-gray-900 ">
-            Backpack
-          </h5>
-        </a>
-        <p className="mb-3 text-xs font-normal text-gray-700 dark:text-gray-400">
-          £9.99
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Add to cart
-          <svg
-            className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
-    <div className="max-w-[15rem] ml-10 mt-10 border border-gray-200 rounded-lg shadow bg-[#f9fafb00]">
-      <a href="#">
-        <img
-          className="rounded-t-lg p-1"
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-          alt=""
-        />
-      </a>
-      <div className="p-3">
-        <a href="#">
-          <h5 className="mb-4 text-sm font-bold tracking-tight text-gray-900 ">
-            Backpack
-          </h5>
-        </a>
-        <p className="mb-3 text-xs font-normal text-gray-700 dark:text-gray-400">
-          £9.99
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Add to cart
-          <svg
-            className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;
