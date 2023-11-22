@@ -5,7 +5,7 @@ const getAllProductsStatic = async (req, res) => {
   res.status(200).json({ products, nbHits: products.length });
 };
 const getAllProducts = async (req, res) => {
-  const {name} = req.query;
+  const { name } = req.query;
   const queryObject = {};
 
   if (name) {
@@ -36,8 +36,12 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   const { id: productID } = req.params;
   try {
-    const update = await Product.findByIdAndUpdate(productID, req.body);
-    res.status(200).json({ product: update });
+    const update = await Product.findOneAndUpdate(
+      { _id: productID },
+      req.body,
+      { new: true, runValidators: true }
+    );
+    res.status(200).json({ update });
   } catch (error) {
     res.status(500).json({ msg: "Server Error" });
   }

@@ -12,9 +12,9 @@ const {
 router
   .route("/")
   .get(getAllProducts)
-  .patch(updateProduct)
-  .delete(deleteProduct)
   .post(createProduct);
+
+router.route('/:id').patch(updateProduct).delete(deleteProduct);
 router.route("/static").get(getAllProductsStatic);
 
 module.exports = router;
