@@ -47,6 +47,21 @@ const updateProduct = async (req, res) => {
   }
 };
 
+// GET single Product code
+
+const getProduct = async (req, res) => {
+  const { id: productID } = req.params;
+  try {
+    const product = await Product.findById({ _id: productID });
+    if (!product) {
+      return res.status(404).json({ msg: `No product with id: ${productID}` });
+    }
+    res.status(200).json({ product });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // delete Product code
 const deleteProduct = async (req, res) => {
   const { id: productID } = req.params;
@@ -65,6 +80,7 @@ const deleteProduct = async (req, res) => {
 
 module.exports = {
   getAllProducts,
+  getProduct,
   getAllProductsStatic,
   createProduct,
   updateProduct,

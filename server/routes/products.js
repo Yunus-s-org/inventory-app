@@ -7,6 +7,7 @@ const {
   createProduct,
   updateProduct,
   deleteProduct,
+  getProduct,
 } = require("../controllers/products");
 
 router
@@ -14,7 +15,7 @@ router
   .get(getAllProducts)
   .post(createProduct);
 
-router.route('/:id').patch(updateProduct).delete(deleteProduct);
+router.route('/:id').patch(updateProduct).delete(deleteProduct).get(getProduct);
 router.route("/static").get(getAllProductsStatic);
 
 module.exports = router;
