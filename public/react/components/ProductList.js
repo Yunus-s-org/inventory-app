@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
 const ProductList = ({ products, setProducts, fetchProducts }) => {
   const handleDelete = async (id) => {
@@ -36,14 +37,12 @@ const ProductList = ({ products, setProducts, fetchProducts }) => {
           body: JSON.stringify(updatedData),
         }
       );
-
       if (!response.ok) {
         console.error(
           `Error updating item with ID ${id}: ${response.statusText}`
         );
         return;
       }
-
       const data = await response.json();
       console.log(`Item with ID ${id} updated successfully:`, data);
       fetchProducts();
