@@ -63,7 +63,7 @@ export const App = () => {
         </a>
       </nav>
       <Search fetchProductsByName={fetchProductsByName} />
-      <ProductList products = {products}/>
+      <ProductList products = {products} setProducts={setProducts}/>
     </main>
   );
 };
