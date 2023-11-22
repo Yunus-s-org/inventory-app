@@ -10,7 +10,8 @@ import { set } from "mongoose";
 
 export const App = () => {
   const [sauces, setSauces] = useState([]);
-	const [products, setProduct] = useState([])
+	const [products, setProducts] = useState([])
+  const [product, setProduct] = useState({})
 
   async function fetchSauces() {
     try {
@@ -24,19 +25,28 @@ export const App = () => {
   }
 
 
-	const fetchProduct = async() => {
+	const fetchProducts = async() => {
 		try {
 			const response = await fetch(`http://localhost:3000/api/v1/products`)
-			const productData = await response.json()
-			setProduct(productData)
+			const productsData = await response.json()
+			setProducts(productsData)
 		} catch (error) {
 			console.log(error)
 		}
 	}
 
+  const fetchProductsByName = async(name) => {
+		try {
+			const response = await fetch(`http://localhost:3000/api/v1/products?name=${name}`)
+			const productsData = await response.json()
+			setProducts(productsData)
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
   useEffect(() => {
-		fetchProduct()
+		fetchProducts()
   }, []);
 
   return (
@@ -52,7 +62,7 @@ export const App = () => {
           All products
         </a>
       </nav>
-      <Search />
+      <Search fetchProductsByName={fetchProductsByName} />
       <ProductList products = {products}/>
     </main>
   );
