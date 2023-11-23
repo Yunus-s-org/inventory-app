@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const Edit = ({ fetchSingleProduct, singleProduct, setSingleProduct }) => {
+const Edit = () => {
   const { id } = useParams();
 
 
@@ -9,7 +9,9 @@ const Edit = ({ fetchSingleProduct, singleProduct, setSingleProduct }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState("");0
+
+
 
   const handleEdit = async (id, updatedData) => {
     try {
