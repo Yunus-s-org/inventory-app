@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Landing from "./Landing";
 import ProductList from "./ProductList";
 import ProductPage from "./ProductPage";
+import CreateItem from "./CreateItem";
 
 export const App = () => {
   const [sauces, setSauces] = useState([]);
@@ -39,6 +40,7 @@ export const App = () => {
           }
         />
         <Route path="products/:id" element={<ProductPage />} />
+        <Route path="create" element={<CreateItem fetchProducts={fetchProducts} />} />
       </Route>
     </Routes>
   );
