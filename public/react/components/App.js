@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SaucesList } from "./SaucesList";
-import { IoSearchSharp } from "react-icons/io5";
-import Popup from "./Popup";
+
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
@@ -13,7 +11,6 @@ import CreateItem from "./CreateItem";
 import Edit from "./Edit";
 
 export const App = () => {
-  const [sauces, setSauces] = useState([]);
   const [products, setProducts] = useState([]);
   const [singleProduct, setSingleProduct] = useState({});
 
@@ -59,7 +56,7 @@ export const App = () => {
             />
           }
         />
-        <Route path="products/:id" element={<ProductPage fetchSingleProduct={fetchSingleProduct} singleProduct={singleProduct} setSingleProduct={setSingleProduct} />} />
+        <Route path="products/:id" element={<ProductPage fetchSingleProduct={fetchSingleProduct} singleProduct={singleProduct} />} />
         <Route path="edit/:id" element={<Edit fetchSingleProduct={fetchSingleProduct} singleProduct={singleProduct} setSingleProduct={setSingleProduct} />} />
         <Route path="create" element={<CreateItem fetchProducts={fetchProducts} />} />
       </Route>
