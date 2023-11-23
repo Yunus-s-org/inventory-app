@@ -1,10 +1,11 @@
 import React from "react";
 import { IoSearchSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Search = ({ fetchProductsByName }) => {
   return (
-    <div className="flex justify-center items-center">
-      <div className="links pr-5  relative w-[50%]">
+    <div className="flex justify-between items-center px-7">
+      <div className=" pr-5  relative w-[50%]">
         <input
           type="text"
           name="search"
@@ -14,6 +15,11 @@ const Search = ({ fetchProductsByName }) => {
         />
         <IoSearchSharp className="text-2xl text-gray-300 absolute right-[50px] top-[49%]" />
       </div>
+      <Link to={'/create'}>
+        <button className="bg-blue-500 text-white p-3 rounded text-sm">
+          + Add new item
+        </button>
+      </Link>
     </div>
   );
 };

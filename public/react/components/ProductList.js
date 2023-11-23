@@ -61,7 +61,7 @@ const ProductList = ({ products, setProducts, fetchProducts }) => {
   };
 
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex flex-row justify-center flex-wrap">
       {products.map((product) => {
         return (
           <div
