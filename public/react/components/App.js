@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { SaucesList } from "./SaucesList";
+import { IoSearchSharp } from "react-icons/io5";
+import Popup from "./Popup";
+
+// import and prepend the api url to any fetch calls
+import apiURL from "../api";
 import { Route, Routes } from "react-router-dom";
 import Landing from "./Landing";
 import ProductList from "./ProductList";
@@ -10,6 +16,7 @@ export const App = () => {
   const [sauces, setSauces] = useState([]);
   const [products, setProducts] = useState([]);
   const [singleProduct, setSingleProduct] = useState({});
+
 
   const fetchProducts = async () => {
     try {
