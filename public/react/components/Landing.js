@@ -1,22 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ProductList from "./ProductList";
 import Search from "./Search";
-import { Outlet, Link} from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
-const Landing = () => {
+const Landing = ({ setProducts }) => {
   const [sauces, setSauces] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [product, setProduct] = useState({});
-
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch(`http://localhost:3000/api/v1/products`);
-      const productsData = await response.json();
-      setProducts(productsData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const fetchProductsByName = async (name) => {
     try {
@@ -29,10 +17,6 @@ const Landing = () => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
 
   return (
     <>

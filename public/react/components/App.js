@@ -28,7 +28,7 @@ export const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Landing />}>
+      <Route path="/" element={<Landing setProducts ={setProducts} />}>
         <Route
           index
           element={

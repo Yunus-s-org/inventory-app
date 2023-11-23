@@ -8,6 +8,7 @@ const CreateItem = ({fetchProducts}) => {
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
   const [featured, setFeatured] = useState(false);
+  const [search , setSearch] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
