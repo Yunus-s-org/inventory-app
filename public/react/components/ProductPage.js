@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const ProductPage = () => {
-  const [singleProduct, setSingleProduct] = useState({});
+const ProductPage = ({fetchSingleProduct, singleProduct}) => {
+
   const { id } = useParams();
 
-  const fetchSingleProduct = async (id) => {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/api/v1/products/${id}`
-      );
-      const productData = await response.json();
-      setSingleProduct(productData.product);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
 
   useEffect(() => {
     fetchSingleProduct(id);
