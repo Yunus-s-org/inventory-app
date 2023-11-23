@@ -6,17 +6,7 @@ import { Outlet, Link } from "react-router-dom";
 const Landing = ({ setProducts }) => {
   const [sauces, setSauces] = useState([]);
 
-  const fetchProductsByName = async (name) => {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/api/v1/products?name=${name}`
-      );
-      const productsData = await response.json();
-      setProducts(productsData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
 
   return (
     <>
@@ -32,7 +22,7 @@ const Landing = ({ setProducts }) => {
             className="text-sm text-gray-50 bg-[#0f172a] p-2 hover:bg-gray-100 hover:text-[#0f172a] rounded"
           ></a>
         </nav>
-        <Search fetchProductsByName={fetchProductsByName} />
+
         <Outlet />
       </main>
     </>
