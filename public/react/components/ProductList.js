@@ -1,7 +1,8 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import Search from "./Search";
+import { FaEdit, FaTrash } from "react-icons/fa";
+
 const ProductList = ({ products, setProducts, fetchProducts }) => {
   const handleDelete = async (id) => {
     try {
@@ -40,7 +41,7 @@ const ProductList = ({ products, setProducts, fetchProducts }) => {
   return (
     <div>
       <Search fetchProductsByName={fetchProductsByName} />
-      <div className="flex flex-row justify-center flex-wrap">
+      <div className="flex flex-row items-center flex-wrap">
         {products.map((product) => {
           return (
             <div
@@ -69,14 +70,14 @@ const ProductList = ({ products, setProducts, fetchProducts }) => {
                 </p>
                 <Link to={`/edit/${product._id}`}>
                   <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Edit
+                    <FaEdit />
                   </button>
                 </Link>
                 <button
                   onClick={() => handleDelete(product._id)}
                   className="inline-flex items-center px-3 py-2 ml-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg "
                 >
-                  Delete
+                <FaTrash />
                 </button>
               </div>
             </div>
